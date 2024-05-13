@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <style>
+      /* CSS for text animation */
+      p {
+        opacity: 0; /* Initially hide the text */
+        transition: opacity 1s ease-in; /* Apply transition for opacity change */
+      }
+
+      /* CSS for confetti animation */
+      /* Add your styles for confetti animation here */
+    </style>
+  </head>
+  <body>
+    <p id="birthdayText">
+      Happy Birthday Chinny, wishing you the very best today has to offer, many
+      more fruitful years and memories. I love You. 🎇
+    </p>
+    <audio id="bgMusic" autoplay loop>
+      <source src="background_music.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <script src="confetti.js"></script>
+    <!-- Confetti  JS-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const birthdayText = document.getElementById("birthdayText");
+        const bgMusic = document.getElementById("bgMusic");
+
+        setTimeout(function () {
+          birthdayText.style.opacity = "1"; // Change opacity to 1 to make the text appear
+          startConfetti(); // Start the confetti animation
+          bgMusic.pause(); // Pause the background music
+        }, 2000); // Delay the appearance, confetti start, and music pause by 2 seconds
+      });
+
+      // Confetti script
+      // Add your confetti animation code here
+      function startConfetti() {
+        const start = () => {
+          setTimeout(function () {
+            confetti.start();
+          }, 1000); // Start confetti after 1 second
+        };
+
+        start();
+      }
+    </script>
+  </body>
+</html>
