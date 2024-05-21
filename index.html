@@ -2,62 +2,114 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap"
-      rel="stylesheet"
-    />
-    <title>Chinny's Birthday</title>
-    <style>
-      /* CSS for text animation */
-      p {
-        opacity: 0; /* Initially hide the text */
-        transition: opacity 1s ease-in; /* Apply transition for opacity change */
-      }
-
-      /* CSS for confetti animation */
-      /* Add your styles for confetti animation here */
-    </style>
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="style2.css" />
   </head>
   <body>
-    <p id="birthdayText">
-      Happy Birthday Chinny, wishing you the very best today has to offer, many
-      more fruitful years and memories. Enjoy your Day... I love You. 🎇
-    </p>
-    <audio id="bgMusic" autoplay loop>
-      <source src="background_music.mp3" type="audio/mpeg" />
+    <header></header>
+    <audio autoplay>
+      <source src="Ruth B - Dandelions (minus).mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
 
-    <script src="confetti.js"></script>
-    <!-- Confetti  JS-->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const birthdayText = document.getElementById("birthdayText");
-        const bgMusic = document.getElementById("bgMusic");
+    <div class="slider">
+      <div class="list">
+        <div class="item">
+          <img src="Chinny/img1.jpg" alt="Flower Image" />
+          <div class="content">
+            <div class="title">MAGIC SLIDER</div>
+            <div class="type">FLOWER</div>
+            <div class="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              temporibus quis eum consequuntur voluptate quae doloribus
+              distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Sequi, aut.
+            </div>
+          </div>
+        </div>
 
-        setTimeout(function () {
-          birthdayText.style.opacity = "1"; // Change opacity to 1 to make the text appear
-          startConfetti(); // Start the confetti animation
-          bgMusic.pause(); // Pause the background music
-        }, 2000); // Delay the appearance, confetti start, and music pause by 2 seconds
-      });
+        <div class="item">
+          <img src="Chinny/img2.jpg" alt="Nature Image" />
+          <div class="content">
+            <div class="title">MAGIC SLIDER</div>
+            <div class="type">NATURE</div>
+            <div class="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              temporibus quis eum consequuntur voluptate quae doloribus
+              distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Sequi, aut.
+            </div>
+          </div>
+        </div>
 
-      // Confetti script
-      // Add your confetti animation code here
-      function startConfetti() {
-        const start = () => {
-          setTimeout(function () {
-            confetti.start();
-          }, 1000); // Start confetti after 1 second
-        };
+        <div class="item">
+          <img src="Chinny/img5.jpg" alt="Plant Image" />
+          <div class="content">
+            <div class="title">MAGIC SLIDER</div>
+            <div class="type">PLANT</div>
+            <div class="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              temporibus quis eum consequuntur voluptate quae doloribus
+              distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Sequi, aut.
+            </div>
+          </div>
+        </div>
 
-        start();
-      }
-    </script>
+        <div class="item">
+          <img src="Chinny/img4.jpg" alt="Nature Image" />
+          <div class="content">
+            <div class="title">MAGIC SLIDER</div>
+            <div class="type">NATURE</div>
+            <div class="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              temporibus quis eum consequuntur voluptate quae doloribus
+              distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Sequi, aut.
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="Chinny/img3.jpg" alt="Nature Image" />
+          <div class="content">
+            <div class="title">MAGIC SLIDER</div>
+            <div class="type">NATURE</div>
+            <div class="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              temporibus quis eum consequuntur voluptate quae doloribus
+              distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Sequi, aut.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="thumbnail">
+        <div class="item">
+          <img src="Chinny/img1.jpg" alt="Thumbnail Image 1" />
+        </div>
+        <div class="item">
+          <img src="Chinny/img2.jpg" alt="Thumbnail Image 2" />
+        </div>
+        <div class="item">
+          <img src="Chinny/img3.jpg" alt="Thumbnail Image 3" />
+        </div>
+        <div class="item">
+          <img src="Chinny/img4.jpg" alt="Thumbnail Image 4" />
+        </div>
+        <div class="item">
+          <img src="Chinny/img5.jpg" alt="Thumbnail Image 5" />
+        </div>
+      </div>
+
+      <div class="nextPrevArrows">
+        <button class="prev" aria-label="Previous Slide"><</button>
+        <button class="next" aria-label="Next Slide">></button>
+      </div>
+    </div>
+
+    <script src="slider.js"></script>
   </body>
 </html>
