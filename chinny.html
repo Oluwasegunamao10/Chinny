@@ -15,8 +15,8 @@
     <style>
       /* CSS for text animation */
       p {
-        opacity: 0; /* Initially hide the text */
-        transition: opacity 1s ease-in; /* Apply transition for opacity change */
+        opacity: 0; /* Initially hides the text */
+        transition: opacity 1s ease-in; /* Applies transition for opacity change */
       }
 
       /* CSS for confetti animation */
@@ -73,34 +73,34 @@
         document.body.appendChild(bgMusic);
 
         startButton.addEventListener("click", function () {
-          startButton.style.display = "none"; // Hide the button
+          startButton.style.display = "none"; // Hides the button
           const birthdayText = document.createElement("p");
           birthdayText.id = "birthdayText";
           birthdayText.textContent =
-            "Happy Birthday Chinny, wishing you the very best today has to offer, many more fruitful years and memories. With lots of love from your dearest friend, Enjoy your Day. 🎇";
+            "Happy Birthday Chinny, wishing you the very best today has to offer, many more fruitful years and memories. With lots of love from your dear friend, Segun... Enjoy your Day. 🎇";
           document.body.appendChild(birthdayText);
 
           const redirectButton = document.createElement("button");
           redirectButton.id = "redirect";
           redirectButton.textContent = "Next Page";
           redirectButton.addEventListener("click", function () {
-            window.location.href = "index.html"; // Redirect to another page
+            window.location.href = "index.html"; // Redirects to index.html page
           });
           document.body.appendChild(redirectButton);
 
           setTimeout(function () {
             birthdayText.style.opacity = "1"; // Change opacity to 1 to make the text appear
-            startConfetti(); // Start the confetti animation
-            bgMusic.play(); // Start the background music
-          }, 1000); // Start confetti after 1 second
+            startConfetti(); // Starts the confetti animation
+            bgMusic.play(); // Starts the background music
+          }, 1000); // Starts confetti after 1 second
         });
 
         // Confetti script
-        // Add your confetti animation code here
+        // Confetti animation code
         function startConfetti() {
           setTimeout(function () {
             confetti.start();
-          }, 1000); // Start confetti after 1 second
+          }, 1000); // Starts confetti after 1 second
         }
       });
     </script>

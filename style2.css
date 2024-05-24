@@ -67,7 +67,7 @@ audio::-webkit-media-controls {
 }
 .slider .list .item .content {
   position: absolute;
-  top: 20%;
+  top: 10%;
   width: 1140px;
   max-width: 80%;
   left: 50%;

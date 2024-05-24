@@ -6,26 +6,27 @@ let thumbnail = document.querySelector(".thumbnail");
 let thumbnailItems = thumbnail.querySelectorAll(".item");
 let currentIndex = 0; // Variable to track the current slide index
 
-thumbnail.appendChild(thumbnailItems[0]);
-
 let intervalId; // Variable to store the interval ID
+let isFirstImage = true; // Variable to track if the current image is the first image
 
 // Function to start the automatic slideshow
 function startSlideshow() {
-  intervalId = setInterval(function () {
+  let duration = isFirstImage ? 5000 : 20000; // 5 seconds for the first image, 30 seconds for the rest
+  intervalId = setTimeout(function () {
     moveSlider("next");
-  }, 7000); // 30 seconds interval
+    startSlideshow(); // Restart the slideshow with the new duration
+  }, duration);
 }
 
 // Function to stop the automatic slideshow
 function stopSlideshow() {
-  clearInterval(intervalId);
+  clearTimeout(intervalId);
 }
 
 // Start the slideshow initially
 startSlideshow();
 
-// Pause the slideshow when mouse enters the slider
+// Pauses the slideshow when mouse enters the slider
 slider.addEventListener("mouseenter", stopSlideshow);
 
 // Resume the slideshow when mouse leaves the slider
@@ -45,26 +46,19 @@ function moveSlider(direction) {
   let sliderItems = sliderList.querySelectorAll(".item");
 
   if (direction === "next") {
-    currentIndex = (currentIndex + 1) % sliderItems.length; // Update current index
+    currentIndex = (currentIndex + 1) % sliderItems.length; // Updates current index
     sliderList.appendChild(sliderItems[0]);
-    thumbnail.appendChild(thumbnailItems[0]);
-    slider.classList.add("next");
+    isFirstImage = currentIndex === 0; // Reset isFirstImage if the slider is back to the first image
   } else {
-    currentIndex = (currentIndex - 1 + sliderItems.length) % sliderItems.length; // Update current index
+    currentIndex = (currentIndex - 1 + sliderItems.length) % sliderItems.length; // Updates current index
     sliderList.prepend(sliderItems[sliderItems.length - 1]);
-    thumbnail.prepend(thumbnailItems[thumbnailItems.length - 1]);
-    slider.classList.add("prev");
+    isFirstImage = currentIndex === 0; // Reset isFirstImage if the slider is back to the first image
   }
 
-  slider.addEventListener(
-    "animationend",
-    function () {
-      if (direction === "next") {
-        slider.classList.remove("next");
-      } else {
-        slider.classList.remove("prev");
-      }
-    },
-    { once: true }
-  ); // Remove the event listener after it's triggered once
+  // Manually adjust the thumbnails as well
+  if (direction === "next") {
+    thumbnail.appendChild(thumbnailItems[0]);
+  } else {
+    thumbnail.prepend(thumbnailItems[thumbnailItems.length - 1]);
+  }
 }
