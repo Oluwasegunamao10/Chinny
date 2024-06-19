@@ -367,14 +367,14 @@ audio::-webkit-media-controls {
   }
   .nextPrevArrows {
     width: 200px;
-    top: 47%;
+    top: 70%;
   }
   .nextPrevArrows button {
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
   }
   .description {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 }
 @media screen and (max-width: 844px) {
@@ -435,7 +435,7 @@ audio::-webkit-media-controls {
     width: 80px;
   }
   .description {
-    font-size: 3em;
+    font-size: 2em;
   }
 }
 @media screen and (max-width: 768px) {
@@ -461,7 +461,7 @@ audio::-webkit-media-controls {
     width: 80px;
   }
   .description {
-    font-size: 2.5em;
+    font-size: 1.5em;
   }
 }
 
@@ -594,7 +594,7 @@ audio::-webkit-media-controls {
     height: 30px;
   }
   .description {
-    font-size: 2.5em;
+    font-size: 1.5em;
   }
   .nextPrevArrows button {
     height: 50px;
@@ -627,7 +627,7 @@ audio::-webkit-media-controls {
     height: 30px;
   }
   .description {
-    font-size: 2em;
+    font-size: 1.5em;
   }
   .nextPrevArrows button {
     height: 50px;
@@ -663,6 +663,34 @@ audio::-webkit-media-controls {
     font-size: 2em;
   }
 }
+@media screen and (max-width: 390px) {
+  .slider .list .item .content .title {
+    font-size: 2em;
+  }
+
+  .slider .list .item .content .type {
+    font-size: 1.5em;
+  }
+
+  .thumbnail .item {
+    width: 100px;
+    height: 150px;
+  }
+
+  .nextPrevArrows {
+    width: 150px;
+    gap: 5px;
+    top: 95%;
+  }
+
+  .nextPrevArrows button {
+    width: 30px;
+    height: 30px;
+  }
+  .description {
+    font-size: 1.5em;
+  }
+}
 
 @media screen and (max-width: 375px) {
   .slider .list .item .content .title {
@@ -689,6 +717,6 @@ audio::-webkit-media-controls {
     height: 50px;
   }
   .description {
-    font-size: 1.7em;
+    font-size: 1.2em;
   }
 }
