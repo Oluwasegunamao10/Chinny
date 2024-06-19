@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
 
 body {
   margin: 0;
@@ -13,8 +13,8 @@ a {
 }
 
 header {
-  width: 1140px;
-  max-width: 80%;
+  width: 100%;
+  max-width: 1140px;
   margin: auto;
   height: 50px;
   display: flex;
@@ -45,8 +45,7 @@ audio::-webkit-media-controls {
   display: none;
 }
 
-/* slider section  */
-
+/* Slider section */
 .slider {
   height: 100vh;
   margin-top: -50px;
@@ -54,22 +53,30 @@ audio::-webkit-media-controls {
   overflow: hidden;
   position: relative;
 }
+
+.slider .list {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
 .slider .list .item {
   width: 100%;
   height: 100%;
   position: absolute;
-  inset: 0 0 0 0;
+  inset: 0;
 }
+
 .slider .list .item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .slider .list .item .content {
   position: absolute;
   top: 10%;
-  width: 1140px;
-  max-width: 80%;
+  width: 100%;
+  max-width: 1140px;
   left: 50%;
   transform: translateX(-50%);
   padding-right: 30%;
@@ -84,9 +91,11 @@ audio::-webkit-media-controls {
   font-weight: bold;
   line-height: 1.3em;
 }
+
 .slider .list .item .type {
   color: #14ff72cb;
 }
+
 .slider .list .item .button {
   display: grid;
   grid-template-columns: repeat(2, 130px);
@@ -94,6 +103,7 @@ audio::-webkit-media-controls {
   gap: 5px;
   margin-top: 20px;
 }
+
 .slider .list .item .button button {
   border: none;
   background-color: #eee;
@@ -107,21 +117,24 @@ audio::-webkit-media-controls {
 .slider .list .item .button button:hover {
   letter-spacing: 3px;
 }
+
 .slider .list .item .button button:nth-child(2) {
   background-color: transparent;
   border: 1px solid #fff;
   color: #eee;
 }
 
-/* Thumbnail Section  */
+/* Thumbnail section */
 .thumbnail {
   position: absolute;
   bottom: 50px;
   left: 50%;
+  transform: translateX(-50%);
   width: max-content;
   z-index: 100;
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .thumbnail .item {
@@ -139,11 +152,12 @@ audio::-webkit-media-controls {
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
 }
 
-/* nextPrevArrows Section  */
+/* Next/Prev arrows section */
 .nextPrevArrows {
   position: absolute;
   top: 80%;
-  right: 52%;
+  right: 50%;
+  transform: translateX(50%);
   z-index: 100;
   width: 300px;
   max-width: 30%;
@@ -151,6 +165,7 @@ audio::-webkit-media-controls {
   gap: 10px;
   align-items: center;
 }
+
 .nextPrevArrows button {
   width: 40px;
   height: 40px;
@@ -163,17 +178,18 @@ audio::-webkit-media-controls {
   transition: 0.5s;
   cursor: pointer;
 }
+
 .nextPrevArrows button:hover {
   background-color: #fff;
   color: #000;
 }
 
-/* Animation Part */
+/* Animation part */
 .slider .list .item:nth-child(1) {
   z-index: 1;
 }
 
-/* animation text in first item */
+/* Animation text in first item */
 .slider .list .item:nth-child(1) .content .title,
 .slider .list .item:nth-child(1) .content .type,
 .slider .list .item:nth-child(1) .content .description,
@@ -183,6 +199,7 @@ audio::-webkit-media-controls {
   opacity: 0;
   animation: showContent 0.5s 1s linear 1 forwards;
 }
+
 @keyframes showContent {
   to {
     transform: translateY(0px);
@@ -190,15 +207,23 @@ audio::-webkit-media-controls {
     opacity: 1;
   }
 }
+
+.description {
+  font-size: 17px;
+}
+
 .slider .list .item:nth-child(1) .content .title {
   animation-delay: 0.4s !important;
 }
+
 .slider .list .item:nth-child(1) .content .type {
   animation-delay: 0.6s !important;
 }
+
 .slider .list .item:nth-child(1) .content .description {
   animation-delay: 0.8s !important;
 }
+
 .slider .list .item:nth-child(1) .content .buttons {
   animation-delay: 1s !important;
 }
@@ -228,6 +253,7 @@ audio::-webkit-media-controls {
   overflow: hidden;
   animation: showThumbnail 0.5s linear 1 forwards;
 }
+
 .slider.prev .list .item img {
   z-index: 100;
 }
@@ -260,6 +286,7 @@ audio::-webkit-media-controls {
   bottom: 0;
   left: 0;
 }
+
 @keyframes outFrame {
   to {
     width: 150px;
@@ -275,6 +302,7 @@ audio::-webkit-media-controls {
   opacity: 0;
   animation: showThumbnail 0.5s linear 1 forwards;
 }
+
 .slider.next .nextPrevArrows button,
 .slider.prev .nextPrevArrows button {
   pointer-events: none;
@@ -294,11 +322,373 @@ audio::-webkit-media-controls {
     opacity: 0;
   }
 }
+
+/* Responsive styles */
+
+@media screen and (max-width: 1280px) {
+  .slider .list .item .content {
+    padding-right: 10%;
+  }
+
+  .slider .list .item .content .title,
+  .slider .list .item .content .type {
+    font-size: 3em;
+  }
+
+  .slider .list .item .button {
+    grid-template-columns: repeat(2, 80px);
+    grid-template-rows: 30px;
+  }
+  .nextPrevArrows {
+    width: 200px;
+    top: 45%;
+  }
+  .nextPrevArrows button {
+    height: 70px;
+    width: 70px;
+  }
+  .description {
+    font-size: 2em;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .slider .list .item .content {
+    padding-right: 10%;
+  }
+
+  .slider .list .item .content .title,
+  .slider .list .item .content .type {
+    font-size: 3em;
+  }
+
+  .slider .list .item .button {
+    grid-template-columns: repeat(2, 80px);
+    grid-template-rows: 30px;
+  }
+  .nextPrevArrows {
+    width: 200px;
+    top: 47%;
+  }
+  .nextPrevArrows button {
+    height: 50px;
+    width: 50px;
+  }
+  .description {
+    font-size: 2em;
+  }
+}
+@media screen and (max-width: 844px) {
+  .slider .list .item .content {
+    padding-right: 10%;
+  }
+
+  .slider .list .item .content .title,
+  .slider .list .item .content .type {
+    font-size: 3em;
+  }
+
+  .slider .list .item .button {
+    grid-template-columns: repeat(2, 80px);
+    grid-template-rows: 30px;
+  }
+  .thumbnail {
+    height: 150px;
+  }
+  .nextPrevArrows {
+    width: 150px;
+    top: 2%;
+    margin-left: 50px;
+  }
+  .nextPrevArrows button {
+    height: 40px;
+    width: 40px;
+  }
+  .description {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .slider .list .item .content {
+    padding-right: 10%;
+  }
+
+  .slider .list .item .content .title,
+  .slider .list .item .content .type {
+    font-size: 3em;
+  }
+
+  .slider .list .item .button {
+    grid-template-columns: repeat(2, 80px);
+    grid-template-rows: 30px;
+  }
+  .thumbnail {
+    height: 150px;
+  }
+  .nextPrevArrows {
+    width: 150px;
+    top: 70%;
+    margin-left: 50px;
+  }
+  .nextPrevArrows button {
+    height: 80px;
+    width: 80px;
+  }
+  .description {
+    font-size: 3em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .slider .list .item .content {
+    padding-right: 10%;
+  }
+
+  .slider .list .item .content .title,
+  .slider .list .item .content .type {
+    font-size: 3em;
+  }
+
+  .slider .list .item .button {
+    grid-template-columns: repeat(2, 80px);
+    grid-template-rows: 30px;
+  }
+  .nextPrevArrows {
+    width: 200px;
+    top: 65%;
+  }
+  .nextPrevArrows button {
+    height: 80px;
+    width: 80px;
+  }
+  .description {
+    font-size: 2.5em;
+  }
+}
+
 @media screen and (max-width: 678px) {
   .slider .list .item .content {
     padding-right: 0;
+    text-align: center;
   }
+
   .slider .list .item .content .title {
-    font-size: 50px;
+    font-size: 2.5em;
+  }
+
+  .thumbnail {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nextPrevArrows {
+    width: 200px;
+    top: 70%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .slider .list .item .content .title {
+    font-size: 2em;
+  }
+
+  .slider .list .item .content .type {
+    font-size: 1.5em;
+  }
+
+  .thumbnail .item {
+    width: 100px;
+    height: 150px;
+  }
+
+  .nextPrevArrows {
+    width: 150px;
+    gap: 5px;
+    top: 65%;
+  }
+
+  .nextPrevArrows button {
+    width: 50px;
+    height: 50px;
+  }
+  .description {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 480px) {
+  .slider .list .item .content .title {
+    font-size: 2em;
+  }
+
+  .slider .list .item .content .type {
+    font-size: 1.5em;
+  }
+
+  .thumbnail .item {
+    width: 100px;
+    height: 150px;
+  }
+
+  .nextPrevArrows {
+    width: 150px;
+    gap: 5px;
+  }
+
+  .nextPrevArrows button {
+    width: 30px;
+    height: 30px;
+  }
+  .description {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 430px) {
+  .slider .list .item .content .title {
+    font-size: 2em;
+  }
+
+  .slider .list .item .content .type {
+    font-size: 1.5em;
+  }
+
+  .thumbnail .item {
+    width: 100px;
+    height: 150px;
+  }
+
+  .nextPrevArrows {
+    width: 150px;
+    gap: 5px;
+  }
+
+  .nextPrevArrows button {
+    width: 50px;
+    height: 50px;
+  }
+  .description {
+    font-size: 1.8em;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .slider .list .item .content .title {
+    font-size: 2em;
+  }
+
+  .slider .list .item .content .type {
+    font-size: 1.5em;
+  }
+
+  .thumbnail .item {
+    width: 100px;
+    height: 150px;
+  }
+
+  .nextPrevArrows {
+    width: 150px;
+    gap: 5px;
+    top: 70%;
+  }
+
+  .nextPrevArrows button {
+    width: 30px;
+    height: 30px;
+  }
+  .description {
+    font-size: 2.5em;
+  }
+  .nextPrevArrows button {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .slider .list .item .content .title {
+    font-size: 2em;
+  }
+
+  .slider .list .item .content .type {
+    font-size: 1.5em;
+  }
+
+  .thumbnail .item {
+    width: 100px;
+    height: 150px;
+  }
+
+  .nextPrevArrows {
+    width: 150px;
+    gap: 5px;
+    top: 70%;
+  }
+
+  .nextPrevArrows button {
+    width: 30px;
+    height: 30px;
+  }
+  .description {
+    font-size: 2em;
+  }
+  .nextPrevArrows button {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .slider .list .item .content .title {
+    font-size: 2em;
+  }
+
+  .slider .list .item .content .type {
+    font-size: 1.5em;
+  }
+
+  .thumbnail .item {
+    width: 100px;
+    height: 150px;
+  }
+
+  .nextPrevArrows {
+    width: 150px;
+    gap: 5px;
+    top: 95%;
+  }
+
+  .nextPrevArrows button {
+    width: 30px;
+    height: 30px;
+  }
+  .description {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .slider .list .item .content .title {
+    font-size: 2em;
+  }
+
+  .slider .list .item .content .type {
+    font-size: 1.5em;
+  }
+
+  .thumbnail .item {
+    width: 100px;
+    height: 150px;
+  }
+
+  .nextPrevArrows {
+    width: 150px;
+    gap: 5px;
+    top: 60%;
+  }
+
+  .nextPrevArrows button {
+    width: 50px;
+    height: 50px;
+  }
+  .description {
+    font-size: 1.7em;
   }
 }
